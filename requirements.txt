@@ -4,3 +4,4 @@ pyswisseph>=2.10
 pytz
 geopy
 icalendar
+PyQt6
