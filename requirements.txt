@@ -1,7 +1,10 @@
 streamlit
 PyJHora
 pyswisseph>=2.10
+PyQt6
 pytz
 geopy
 icalendar
-PyQt6
+geocoder
+timezonefinder
+reverse_geocode
