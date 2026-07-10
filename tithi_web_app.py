@@ -40,6 +40,18 @@ except ModuleNotFoundError:
         "name, no spaces, no `(1)` suffix, no `.txt` extension."
     )
     st.stop()
+except (SystemExit, ImportError, Exception) as e:
+    # The engine calls sys.exit() if PyJHora itself fails to import —
+    # surface the real reason instead of a blank page.
+    st.set_page_config(page_title="Tithi Pravesha", page_icon="🌙")
+    st.error(
+        "**The calculation engine failed to load.**\n\n"
+        f"```\n{e}\n```\n\n"
+        "If this mentions PyQt6 or a missing module, add `PyQt6` to "
+        "requirements.txt and create a `packages.txt` file containing "
+        "`libgl1`, `libegl1`, `libxkbcommon0` (one per line)."
+    )
+    st.stop()
 from jhora.panchanga import drik
 
 st.set_page_config(page_title="Tithi Pravesha", page_icon="🌙", layout="centered")
